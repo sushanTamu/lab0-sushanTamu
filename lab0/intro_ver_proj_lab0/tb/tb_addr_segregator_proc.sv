@@ -45,10 +45,17 @@ module tb_addr_segregator_proc;
             cmd_wr = 1'b1;
             address = 32'hABCD_DCBA;
         
-        // write more testcases
-
+        //testcase 4: write requests
+        #10 cmd_rd = 1'b0;
+            cmd_wr = 1'b1;
+            address = 32'hFEED_C0DE;
       
-        #10 $finish;
+        //testcase 5: read requests
+        #30 cmd_rd = 1'b1;
+            cmd_wr = 1'b0;
+            address = 32'hC000_10FF;
+        
+        #60 $finish;
     end                    
                         
                         
